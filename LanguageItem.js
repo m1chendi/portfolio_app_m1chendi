@@ -1,22 +1,48 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-const LanguageItem = ({ lang }) => {
+const LanguageItem = ({ language, experience, image }) => {
   return (
-    <View style={styles.item}>
-      <Text style={styles.text}>{lang}</Text>
+    <View style={styles.container}>
+      <Image style={styles.logo} source={{ uri: image }} />
+      <View style={styles.textContainer}>
+        <Text style={styles.language}>{language}</Text>
+        <Text style={styles.experience}>Опыт: {experience} года</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  item: {
-    padding: 15,
-    marginVertical: 8,
-    backgroundColor: '#f9c2ff',
+  container: {
+    bottom: 10,
+    top: 10,
+    padding: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    borderRadius: 8,
+    backgroundColor: '#fff',
+    marginVertical: 4,
+    marginHorizontal: 16,
   },
-  text: {
-    fontSize: 18,
+  logo: {
+    width: 50,
+    height: 50,
+    marginRight: 4,
+  },
+  textContainer: {
+    flex: 1,
+    marginLeft: 4,
+  },
+  language: {
+    fontSize: 17,
+    fontWeight: 'bold',
+  },
+  experience: {
+    fontSize: 11,
+    color: '#666',
   },
 });
 
